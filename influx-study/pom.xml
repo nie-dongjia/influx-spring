@@ -36,6 +36,11 @@
             <groupId>org.influxdb</groupId>
             <artifactId>influxdb-java</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.70</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>spring-boot-mybatis-web</finalName>

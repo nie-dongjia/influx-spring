@@ -9,6 +9,11 @@
  */
 package com.djn.cn.influx.config;
 
+import com.djn.cn.influx.util.InfluxDbUtil;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 /**
  * <b>类  名：</b>com.djn.cn.influx.config.InfluxDbConfig<br/>
  * <b>类描述：</b>TODO<br/>
@@ -21,5 +26,23 @@ package com.djn.cn.influx.config;
  * @version 1.0.0 <br/>
  *
  */
+@Configuration
 public class InfluxDbConfig {
+
+    @Value("${spring.influx.url:''}")
+    private String influxDBUrl;
+
+    @Value("${spring.influx.user:''}")
+    private String userName;
+
+    @Value("${spring.influx.password:''}")
+    private String password;
+
+    @Value("${spring.influx.database:''}")
+    private String database;
+
+    @Bean
+    public InfluxDbUtil influxDbUtils() {
+        return new InfluxDbUtil(userName, password, influxDBUrl, database, "");
+    }
 }
